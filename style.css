@@ -1,0 +1,218 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /* A very soft, deep, warm romantic background, not pure black */
+  background: radial-gradient(circle at center, #1f081c 0%, #05020a 100%);
+  overflow: hidden;
+  font-family: 'Quicksand', sans-serif;
+  color: #ffffff;
+  /* Prevent text selection */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#start-screen {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  z-index: 9999;
+  cursor: pointer;
+  transition: opacity 1s ease;
+}
+
+#start-screen p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #ffb6c1;
+  opacity: 0.8;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+#canvas-container {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#ui-layer {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Scene 1: Sweet initialization text */
+.terminal-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #ffe6ea;
+  text-align: left;
+  text-shadow: 0 0 15px rgba(255, 182, 193, 0.4);
+}
+.terminal-text .her-name {
+  color: #ff69b4;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+}
+.t-line {
+  opacity: 0; 
+  margin: 15px 0;
+  transform: translateY(10px);
+}
+
+/* Scene 3: Elegant Reveal */
+.reveal-text {
+  position: absolute;
+}
+.elegant-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  color: #fff0f5;
+  text-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+  line-height: 1.1;
+}
+.elegant-title .hl-text {
+  background: linear-gradient(135deg, #ffa8b6 0%, #ffc0cb 50%, #fecfef 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(255, 154, 158, 0.8));
+  font-size: 6rem;
+  line-height: 1.2;
+}
+.elegant-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ffe4e1;
+  line-height: 1.8;
+  opacity: 0;
+  text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+/* Scene 4: Question & Buttons */
+.question-container {
+  position: absolute;
+  top: 65%;
+  pointer-events: auto;
+  opacity: 0;
+}
+.playful-question {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.5rem;
+  margin-bottom: 25px;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+}
+.buttons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  min-width: 300px;
+  height: 60px;
+}
+.btn {
+  padding: 12px 35px;
+  font-size: 1.3rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  background: rgba(255, 182, 193, 0.1);
+  border: 2px solid rgba(255, 182, 193, 0.4);
+  border-radius: 40px;
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
+}
+.yes-btn {
+  border-color: #ff69b4;
+  background: rgba(255, 105, 180, 0.15);
+  text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.2);
+}
+.yes-btn:hover {
+  background: rgba(255, 105, 180, 0.4);
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.8);
+  transform: scale(1.1);
+  border-color: #fff;
+}
+.no-btn {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  white-space: nowrap;
+}
+.no-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Final Texts */
+.final-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.good-choice {
+  font-family: 'Dancing Script', cursive;
+  font-size: 5.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffb6c1;
+  text-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
+  opacity: 0;
+}
+.universe-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 182, 193, 0.4);
+  opacity: 0;
+}
+
+/* Pulse Instead of glitch */
+.heartbeat-pulse {
+  animation: pulse-scene 0.5s ease-in-out;
+}
+@keyframes pulse-scene {
+  0% { transform: scale(1); filter: brightness(1) drop-shadow(0 0 0px #ff69b4); }
+  50% { transform: scale(1.02); filter: brightness(1.3) drop-shadow(0 0 20px #ff69b4); }
+  100% { transform: scale(1); filter: brightness(1) drop-shadow(0 0 0px #ff69b4); }
+}

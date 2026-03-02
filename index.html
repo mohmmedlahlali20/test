@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Sweet Surprise</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital@0;1&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Three.js for 3D -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  
+  <div id="start-screen">
+    <p>Tap anywhere to open your surprise... 💌</p>
+  </div>
+
+  <div id="canvas-container"></div>
+  
+  <div id="ui-layer">
+    <!-- Scene 1 Text -->
+    <div id="scene1-text" class="terminal-text hidden">
+      <p class="t-line t-line1">✨ Initializing heartbeat...</p>
+      <p class="t-line t-line2">🌸 Searching the universe for the most beautiful girl...</p>
+      <p class="t-line t-line3">💖 Found her: <span class="her-name">[HER_NAME]</span></p>
+      <p class="t-line t-line4">🌟 Status: Officially stolen my heart.</p>
+    </div>
+
+    <!-- Scene 3 Reveal Text -->
+    <div id="scene3-text" class="reveal-text hidden">
+      <h1 class="elegant-title">Happy Birthday<br><span class="her-name hl-text">[HER_NAME]</span></h1>
+      <p class="elegant-subtitle">In a world full of billions of people...<br>I'm so incredibly lucky I found you. 💕</p>
+    </div>
+
+    <!-- Scene 4 Question -->
+    <div id="scene4-question" class="question-container hidden">
+      <p class="playful-question">Did you love me?</p>
+      <div class="buttons" id="btn-container">
+        <button id="btn-yes" class="btn yes-btn">YES 🥰</button>
+        <button id="btn-no" class="btn no-btn">NO 🙃</button>
+      </div>
+    </div>
+
+    <!-- Final Transformation Text -->
+    <div id="scene5-text" class="final-text hidden">
+      <h2 class="good-choice">I knew it 😚</h2>
+      <p class="universe-text hidden" id="final-universe-text">You are my whole universe.<br>I love you forever. ♾️</p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
